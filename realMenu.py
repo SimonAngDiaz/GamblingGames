@@ -10,6 +10,13 @@ pygame.display.set_caption("Menu")
 BG_ORIG = pygame.image.load("images/back.png")
 BG = pygame.transform.scale(BG_ORIG, (1280, 720))
 
+BG_ORIG_SS = pygame.image.load("images/start.png")
+BG_SS = pygame.transform.scale(BG_ORIG_SS, (1280, 720))
+
+WAR_ORIG = pygame.image.load("images/war.png")
+WAR = pygame.transform.scale(WAR_ORIG, (1024, 1536))
+
+
 def get_font(size): 
     return pygame.font.Font("images/font.ttf", size) 
 
@@ -17,7 +24,7 @@ def play():
     while True:
         PLAY_MOUSE_POS = pygame.mouse.get_pos()
 
-        SCREEN.fill("black")
+        SCREEN.blit(BG_SS,(0, 0))
 
         PLAY_TEXT = get_font(45).render("This is the PLAY screen.", True, "White")
         PLAY_RECT = PLAY_TEXT.get_rect(center=(640, 260))
@@ -101,5 +108,6 @@ def main_menu():
                     sys.exit()
 
         pygame.display.update()
+ 
 
 main_menu()
