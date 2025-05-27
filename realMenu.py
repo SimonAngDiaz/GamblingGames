@@ -26,12 +26,12 @@ def play():
 
         SCREEN.blit(BG_SS,(0, 0))
 
-        PLAY_TEXT = get_font(45).render("This is the PLAY screen.", True, "White")
-        PLAY_RECT = PLAY_TEXT.get_rect(center=(640, 260))
-        SCREEN.blit(PLAY_TEXT, PLAY_RECT)
+        #PLAY_TEXT = get_font(45).render("This is the PLAY screen.", True, "White")
+        #PLAY_RECT = PLAY_TEXT.get_rect(center=(640, 260))
+        #SCREEN.blit(PLAY_TEXT, PLAY_RECT)
 
-        PLAY_BACK = Button(image=None, pos=(640, 460), 
-                            text_input="BACK", font=get_font(75), base_color="White", hovering_color="Green")
+        PLAY_BACK = Button(image=None, pos=(170, 650), 
+                            text_input="BACK", font=get_font(75), base_color="White", hovering_color= "Green")
 
         PLAY_BACK.changeColor(PLAY_MOUSE_POS)
         PLAY_BACK.update(SCREEN)
