@@ -1,24 +1,55 @@
-public class Card{
+public class Card {
+    private String rank;
+    private String suit;
 
-    private int num;
-    private String type;
+    private static final String[] VALID_RANKS = {
+        "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"
+    };
+    private static final String[] VALID_SUITS = {
+        "Hearts", "Diamonds", "Clubs", "Spades"
+    };
 
+    public Card(String rank, String suit) {
+        if (!isValidRank(rank)) {
+            throw new IllegalArgumentException("Invalid rank: " + rank);
+        }
+        if (!isValidSuit(suit)) {
+            throw new IllegalArgumentException("Invalid suit: " + suit);
+        }
 
-    public Card(int num, String type){
-        this.num = num;
-        this.type = type;
+        this.rank = rank;
+        this.suit = suit;
     }
 
-    public int getNum(){
-        return num;
+    private boolean isValidRank(String rank) {
+        for (String r : VALID_RANKS) {
+            if (r.equals(rank)) return true;
+        }
+        return false;
     }
 
-    public String getType(){
-        return type;
+    private boolean isValidSuit(String suit) {
+        for (String s : VALID_SUITS) {
+            if (s.equals(suit)) return true;
+        }
+        return false;
     }
 
     public boolean equals(Card other){
-        if (this.num == other.num && this.type == other.type) return true;
+        if (this.rank == other.rank && this.suit == other.suit) return true;
         return false;
+    }
+
+    public String toString() {
+        return rank + " of " + suit;
+    }
+    
+
+    public String getRank() {
+        return rank;
+    }
+
+    public String getSuit() {
+        return suit;
     }
 }
